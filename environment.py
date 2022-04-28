@@ -10,6 +10,7 @@ def before_all(context):
     context.login_page = LoginPage()
     context.product_page = ProductsPage()
     context.cart_page = CartPage()
+    context.favorites_page = Favorites()
 
 
 def after_all(context):
