@@ -24,11 +24,11 @@ def step_impl(context):
 
 @then('favorites: I verify that the favorites list is complete by "{product_name}"')
 def step_impl(context, product_name):
-    context.favorites_page.verify_element_is_displayed_as_list(product_name)
+    context.favorites_page.verify_element_is_displayed_in_favorites(product_name)
 
 @when('favorites: I delete one product by "{product_name}"')
-def step_impl(context):
-    context.favorites_page.click_sterge_produs()
+def step_impl(context, product_name):
+    context.favorites_page.click_sterge_produs(product_name)
 
 @then('favorites: I see one element less in the list')
 def step_impl(context):

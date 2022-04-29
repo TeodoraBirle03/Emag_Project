@@ -119,7 +119,7 @@ function Collapsible_expandAllFailed()
             <p id="scenario_totals">Scenarios: skipped: 6, failed: 1</p>
             <p id="step_totals">Steps: skipped: 13, untested: 8</p>
           </p>
-          <p id="duration">Finished in 14.7 seconds</p>
+          <p id="duration">Finished in 14.1 seconds</p>
           <div id="expand-collapse">
             <a id="expander" href="#" onclick="Collapsible_expandAll('scenario_steps')">Expand All</a>
             <span> | </span>
@@ -184,7 +184,7 @@ function Collapsible_expandAllFailed()
             <div class="step_name">
               <span class="keyword">Given </span>
               <span class="step val">home: I am a user on emag.ro Home page</span>
-              <small class="step_duration">(4.421s)</small>
+              <small class="step_duration">(4.240s)</small>
             </div>
             <div class="step_file">
               <span>steps/home_steps.py:4</span>
@@ -195,7 +195,7 @@ function Collapsible_expandAllFailed()
             <div class="step_name">
               <span class="keyword">When </span>
               <span class="step val">home: I search after &quot;biscuiti&quot;</span>
-              <small class="step_duration">(5.758s)</small>
+              <small class="step_duration">(5.492s)</small>
             </div>
             <div class="step_file">
               <span>steps/favorites_steps.py:9</span>
@@ -210,7 +210,7 @@ function Collapsible_expandAllFailed()
                 <b>Biscuiti cu ciocolata si fulgi de cocos Bounty Cookies, 180g</b>
                 <span>&quot;</span>
               </span>
-              <small class="step_duration">(1.275s)</small>
+              <small class="step_duration">(1.182s)</small>
             </div>
             <div class="step_file">
               <span>steps/favorites_steps.py:13</span>
@@ -221,7 +221,7 @@ function Collapsible_expandAllFailed()
             <div class="step_name">
               <span class="keyword">When </span>
               <span class="step val">products: I click on favorites icon</span>
-              <small class="step_duration">(3.246s)</small>
+              <small class="step_duration">(3.212s)</small>
             </div>
             <div class="step_file">
               <span>steps/favorites_steps.py:17</span>
@@ -232,7 +232,7 @@ function Collapsible_expandAllFailed()
             <div class="step_name">
               <span class="keyword">Then </span>
               <span class="step val">products: I verify that I am on favorites page</span>
-              <small class="step_duration">(0.031s)</small>
+              <small class="step_duration">(0.000s)</small>
             </div>
             <div class="step_file">
               <span>steps/favorites_steps.py:21</span>
@@ -260,10 +260,10 @@ function Collapsible_expandAllFailed()
   File &quot;C:\Users\birle\AppData\Local\Programs\Python\Python310\lib\site-packages\behave\matchers.py&quot;, line 98, in run
     self.func(context, *args, **kwargs)
   File &quot;steps\favorites_steps.py&quot;, line 27, in step_impl
-    context.favorites_page.verify_element_is_displayed_as_list(product_name)
-  File &quot;D:\ITFactoryCurs\emag\pages\favorites_page.py&quot;, line 38, in verify_element_is_displayed_as_list
-    self.verify_element_is_displayed(selector)
-TypeError: BasePage.verify_element_is_displayed() missing 1 required positional argument: 'selector'
+    context.favorites_page.verify_element_is_displayed_in_favorites(product_name)
+  File &quot;D:\ITFactoryCurs\emag\pages\favorites_page.py&quot;, line 38, in verify_element_is_displayed_in_favorites
+    self.verify_element_is_displayed_as_list(product_name)
+TypeError: BasePage.verify_element_is_displayed_as_list() missing 1 required positional argument: 'selector'
 
 Captured stdout:
 teodora</pre>

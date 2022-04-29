@@ -34,8 +34,8 @@ class FavoritesPage(BasePage):
 
    # # trebuie sa verific ca lista este completa, contine 2 produse
 
-    def verify_element_is_displayed_as_list(self, selector):
-        self.verify_element_is_displayed(selector)
+    def verify_element_is_displayed_in_favorites(self, product_name):
+        self.verify_element_is_displayed_as_list(product_name)
         # elem_list = self.driver.find_elements(by, product_name)
         # print(elem_list)
         # self.assertEqual(len(elem_list), 1, 'Elements not displayed')
