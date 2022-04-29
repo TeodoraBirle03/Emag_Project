@@ -10,39 +10,43 @@ from time import sleep
 
 class FavoritesPage(BasePage):
 
-    ACCEPT_COOKIES_BTN = (By.XPATH, '//button[text()="Accept"]')
-    INTRA_IN_CONT_CLOSE_BTN = (By.XPATH, '(//i[@class="em em-close"]/parent::button)[3]')
     SEARCH_INPUT = (By.ID, 'searchboxTrigger')
-    DELETE_BTN = (By.XPATH, '//span[contains(text(), "Biscuiti cu ciocolata si fulgi de cocos Bounty Cookies, 180g" )]/parent::a/parent::h2/parent::div/parent::div//span[contains(text(), "Sterge")]')
-
-    def navigate_to_home_page(self):
-        self.driver.get('https://www.emag.ro/')
-
-    def click_accept_cookies_btn(self):
-        self.click_if_present(*self.ACCEPT_COOKIES_BTN)
-
-    def click_intra_in_cont_close_btn(self):
-        self.click_if_present(*self.INTRA_IN_CONT_CLOSE_BTN)
 
     def search_after(self):
-        self.wait_and_fill_elem(*self.SEARCH_INPUT)
         self.driver.find_element(*self.SEARCH_INPUT).send_keys('biscuiti')
         self.driver.find_element(By.XPATH, f'(//a[@class="searchbox-suggestion-result searchbox-active-item"])[2]').click()
+        actual = self.driver.current_url
+        expected  = 'https://www.emag.ro/search/dulciuri-1/biscuiti/c?ref=autosuggest_category1%252Csearch_bar_biscuiti'
+        self.assertEqual(actual, expected, 'You have landed on the wrong page')
         sleep(2)
 
-    def click_on_favorites_icon(self, product_name):
-        self.driver.find_element(By.XPATH, f'//a[contains(text(), "{product_name}"]/parent::div/parent::div/parent::div/parent::div//i[@class="em em-fav em-fav-bold"]').click()
+    def click_on_favorites_icon_by_product_name(self, product_name):
+        print('teodora')
+        self.driver.find_element(By.XPATH, f'//a[contains(text(), "{product_name}")]/parent::div/parent::div/parent::div/parent::div//i[@class="em em-fav em-fav-bold"]').click()
+        sleep(1)
 
     def click_favorites_list(self):
         self.driver.find_element(By.ID, "my_wishlist").click()
-        actual = self.driver.current_url
-        expected = 'https://www.emag.ro/favorites?ref=ua_favorites'
-        self.assertEqual(actual, expected, 'You have landed on the wrong page')
+        sleep(2)
+
+    def verify_favorites_url(self):
+        self.verify_page_url('https://www.emag.ro/favorites?ref=ua_favorites')
+
+   # # trebuie sa verific ca lista este completa, contine 2 produse
+
+    def verify_element_is_displayed_as_list(self, selector):
+        self.verify_element_is_displayed(selector)
+        # elem_list = self.driver.find_elements(by, product_name)
+        # print(elem_list)
+        # self.assertEqual(len(elem_list), 1, 'Elements not displayed')
 
     def click_sterge_produs(self, product_name):
         self.driver.find_element(By.XPATH, f'//span[contains(text(), "{product_name}")]/parent::a/parent::h2/parent::div/parent::div//span[contains(text(), "Sterge")]').click()
+        # self.verify_element_is_displayed_as_list(self, by, product_name)
 
-
+    def verify_element_is_not_displayed(self, by, product_name):
+        elem_list = self.driver.find_elements(by, product_name)
+        self.assertEqual(len(elem_list), len(elem_list)-1, 'Element is still displayed')
 
 
 
