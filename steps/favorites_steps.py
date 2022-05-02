@@ -1,11 +1,5 @@
 from behave import *
 
-# @given('home: I am a user on emag.ro Home page')
-# def step_impl(context):
-#     context.home_page.navigate_to_home_page()
-#     context.home_page.click_accept_cookies_btn()
-#     context.home_page.click_intra_in_cont_close_btn()
-
 @when('home: I search after "biscuiti"')
 def step_impl(context):
     context.favorites_page.search_after()
@@ -24,12 +18,12 @@ def step_impl(context):
 
 @then('favorites: I verify that the favorites list is complete by "{product_name}"')
 def step_impl(context, product_name):
-    context.favorites_page.verify_element_is_displayed_in_favorites(product_name)
+    context.favorites_page.verify_element_is_displayed(product_name)
 
 @when('favorites: I delete one product by "{product_name}"')
 def step_impl(context, product_name):
     context.favorites_page.click_sterge_produs(product_name)
 
-@then('favorites: I see one element less in the list')
-def step_impl(context):
-    context.favorites_page.verify_element_is_not_displayed
+@then('favorites: I do not see the "{product_name}" anymore')
+def step_impl(context, product_name):
+    context.favorites_page.verify_element_is_not_displayed_as_elem(product_name)

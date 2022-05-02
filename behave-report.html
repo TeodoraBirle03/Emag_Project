@@ -109,17 +109,17 @@ function Collapsible_expandAllFailed()
   </head>
   <body>
     <div class="behave">
-      <div id="behave-header" class="failed">
+      <div id="behave-header">
         <div id="label">
           <h1>Behave Test Report</h1>
         </div>
         <div id="summary">
           <p id="totals">
-            <p id="feature_totals">Features: skipped: 3, failed: 1</p>
-            <p id="scenario_totals">Scenarios: skipped: 6, failed: 1</p>
-            <p id="step_totals">Steps: skipped: 13, untested: 8</p>
+            <p id="feature_totals">Features: skipped: 3, passed: 1</p>
+            <p id="scenario_totals">Scenarios: skipped: 6, passed: 1</p>
+            <p id="step_totals">Steps: skipped: 13, untested: 16</p>
           </p>
-          <p id="duration">Finished in 14.1 seconds</p>
+          <p id="duration">Finished in 16.7 seconds</p>
           <div id="expand-collapse">
             <a id="expander" href="#" onclick="Collapsible_expandAll('scenario_steps')">Expand All</a>
             <span> | </span>
@@ -174,17 +174,26 @@ function Collapsible_expandAllFailed()
         <span/>
       </div>
       <div class="scenario">
-        <span class="scenario_file">features/favorites.feature:16</span>
+        <span class="scenario_file">features/favorites.feature:18</span>
         <span class="tag">@favorites1</span>
-        <h3 onclick="Collapsible_toggle('scenario_2')" class="failed">
+        <h3 onclick="Collapsible_toggle('scenario_2')">
           <span class="val">Scenario Outline: Test the favorites list is complete -- @1.1 </span>
         </h3>
-        <ol class="scenario_steps" id="scenario_2">
+        <ol class="scenario_steps" id="scenario_2"/>
+        <span/>
+      </div>
+      <div class="scenario">
+        <span class="scenario_file">features/favorites.feature:35</span>
+        <span class="tag">@favorites2</span>
+        <h3 onclick="Collapsible_toggle('scenario_3')">
+          <span class="val">Scenario Outline: Test that after I delete an element by name from favorites,it isn't displayed anymore -- @1.1 </span>
+        </h3>
+        <ol class="scenario_steps" id="scenario_3">
           <li class="step passed">
             <div class="step_name">
               <span class="keyword">Given </span>
               <span class="step val">home: I am a user on emag.ro Home page</span>
-              <small class="step_duration">(4.240s)</small>
+              <small class="step_duration">(4.494s)</small>
             </div>
             <div class="step_file">
               <span>steps/home_steps.py:4</span>
@@ -195,10 +204,10 @@ function Collapsible_expandAllFailed()
             <div class="step_name">
               <span class="keyword">When </span>
               <span class="step val">home: I search after &quot;biscuiti&quot;</span>
-              <small class="step_duration">(5.492s)</small>
+              <small class="step_duration">(5.666s)</small>
             </div>
             <div class="step_file">
-              <span>steps/favorites_steps.py:9</span>
+              <span>steps/favorites_steps.py:3</span>
             </div>
             <span class="embed"/>
           </li>
@@ -210,10 +219,25 @@ function Collapsible_expandAllFailed()
                 <b>Biscuiti cu ciocolata si fulgi de cocos Bounty Cookies, 180g</b>
                 <span>&quot;</span>
               </span>
-              <small class="step_duration">(1.182s)</small>
+              <small class="step_duration">(1.231s)</small>
             </div>
             <div class="step_file">
-              <span>steps/favorites_steps.py:13</span>
+              <span>steps/favorites_steps.py:7</span>
+            </div>
+            <span class="embed"/>
+          </li>
+          <li class="step passed">
+            <div class="step_name">
+              <span class="keyword">When </span>
+              <span class="step val">
+                <span>products: I add product to favorites list by &quot;</span>
+                <b>Jeleuri cu aroma de fructe Haribo Goldbaren,360g</b>
+                <span>&quot;</span>
+              </span>
+              <small class="step_duration">(1.471s)</small>
+            </div>
+            <div class="step_file">
+              <span>steps/favorites_steps.py:7</span>
             </div>
             <span class="embed"/>
           </li>
@@ -221,10 +245,10 @@ function Collapsible_expandAllFailed()
             <div class="step_name">
               <span class="keyword">When </span>
               <span class="step val">products: I click on favorites icon</span>
-              <small class="step_duration">(3.212s)</small>
+              <small class="step_duration">(3.514s)</small>
             </div>
             <div class="step_file">
-              <span>steps/favorites_steps.py:17</span>
+              <span>steps/favorites_steps.py:11</span>
             </div>
             <span class="embed"/>
           </li>
@@ -232,63 +256,74 @@ function Collapsible_expandAllFailed()
             <div class="step_name">
               <span class="keyword">Then </span>
               <span class="step val">products: I verify that I am on favorites page</span>
-              <small class="step_duration">(0.000s)</small>
+              <small class="step_duration">(0.031s)</small>
             </div>
             <div class="step_file">
-              <span>steps/favorites_steps.py:21</span>
+              <span>steps/favorites_steps.py:15</span>
             </div>
             <span class="embed"/>
           </li>
-          <li class="step failed">
+          <li class="step passed">
             <div class="step_name">
-              <span class="keyword">Then </span>
+              <span class="keyword">When </span>
               <span class="step val">
-                <span>favorites: I verify that the favorites list is complete by &quot;</span>
+                <span>favorites: I delete one product by &quot;</span>
                 <b>Biscuiti cu ciocolata si fulgi de cocos Bounty Cookies, 180g</b>
                 <span>&quot;</span>
               </span>
-              <small class="step_duration">(0.000s)</small>
+              <small class="step_duration">(0.146s)</small>
             </div>
             <div class="step_file">
-              <span>steps/favorites_steps.py:25</span>
+              <span>steps/favorites_steps.py:23</span>
             </div>
-            <span class="embed">
-              <a onclick="Collapsible_toggle('embed_1')">Error Message</a>
-              <pre id="embed_1" style="display: none">Traceback (most recent call last):
-  File &quot;C:\Users\birle\AppData\Local\Programs\Python\Python310\lib\site-packages\behave\model.py&quot;, line 1329, in run
-    match.run(runner.context)
-  File &quot;C:\Users\birle\AppData\Local\Programs\Python\Python310\lib\site-packages\behave\matchers.py&quot;, line 98, in run
-    self.func(context, *args, **kwargs)
-  File &quot;steps\favorites_steps.py&quot;, line 27, in step_impl
-    context.favorites_page.verify_element_is_displayed_in_favorites(product_name)
-  File &quot;D:\ITFactoryCurs\emag\pages\favorites_page.py&quot;, line 38, in verify_element_is_displayed_in_favorites
-    self.verify_element_is_displayed_as_list(product_name)
-TypeError: BasePage.verify_element_is_displayed_as_list() missing 1 required positional argument: 'selector'
-
-Captured stdout:
-teodora</pre>
-                  
-            </span>
+            <span class="embed"/>
+          </li>
+          <li class="step passed">
+            <div class="step_name">
+              <span class="keyword">Then </span>
+              <span class="step val">
+                <span>favorites: I do not see the &quot;</span>
+                <b>Biscuiti cu ciocolata si fulgi de cocos Bounty Cookies, 180g</b>
+                <span>&quot; anymore</span>
+              </span>
+              <small class="step_duration">(0.041s)</small>
+            </div>
+            <div class="step_file">
+              <span>steps/favorites_steps.py:27</span>
+            </div>
+            <span class="embed"/>
+          </li>
+          <li class="step passed">
+            <div class="step_name">
+              <span class="keyword">When </span>
+              <span class="step val">
+                <span>favorites: I delete one product by &quot;</span>
+                <b>Jeleuri cu aroma de fructe Haribo Goldbaren,360g</b>
+                <span>&quot;</span>
+              </span>
+              <small class="step_duration">(0.071s)</small>
+            </div>
+            <div class="step_file">
+              <span>steps/favorites_steps.py:23</span>
+            </div>
+            <span class="embed"/>
+          </li>
+          <li class="step passed">
+            <div class="step_name">
+              <span class="keyword">Then </span>
+              <span class="step val">
+                <span>favorites: I do not see the &quot;</span>
+                <b>Jeleuri cu aroma de fructe Haribo Goldbaren,360g</b>
+                <span>&quot; anymore</span>
+              </span>
+              <small class="step_duration">(0.021s)</small>
+            </div>
+            <div class="step_file">
+              <span>steps/favorites_steps.py:27</span>
+            </div>
+            <span class="embed"/>
           </li>
         </ol>
-        <span/>
-      </div>
-      <div class="scenario">
-        <span class="scenario_file">features/favorites.feature:26</span>
-        <span class="tag">@favorites2</span>
-        <h3 onclick="Collapsible_toggle('scenario_3')">
-          <span class="val">Scenario Outline: Test list has one element less, after I delete one element -- @1.1 </span>
-        </h3>
-        <ol class="scenario_steps" id="scenario_3"/>
-        <span/>
-      </div>
-      <div class="scenario">
-        <span class="scenario_file">features/favorites.feature:27</span>
-        <span class="tag">@favorites2</span>
-        <h3 onclick="Collapsible_toggle('scenario_4')">
-          <span class="val">Scenario Outline: Test list has one element less, after I delete one element -- @1.2 </span>
-        </h3>
-        <ol class="scenario_steps" id="scenario_4"/>
         <span/>
       </div>
       <div class="feature">
@@ -307,19 +342,19 @@ teodora</pre>
       <div class="scenario">
         <span class="scenario_file">features/login.feature:7</span>
         <span class="tag">@login1</span>
-        <h3 onclick="Collapsible_toggle('scenario_5')">
+        <h3 onclick="Collapsible_toggle('scenario_4')">
           <span class="val">Scenario: Click logo button and return to home</span>
         </h3>
-        <ol class="scenario_steps" id="scenario_5"/>
+        <ol class="scenario_steps" id="scenario_4"/>
         <span/>
       </div>
       <div class="scenario">
         <span class="scenario_file">features/login.feature:15</span>
         <span class="tag">@login2</span>
-        <h3 onclick="Collapsible_toggle('scenario_6')">
+        <h3 onclick="Collapsible_toggle('scenario_5')">
           <span class="val">Scenario: If a logged out user wants to buy a product, he has to login first</span>
         </h3>
-        <ol class="scenario_steps" id="scenario_6"/>
+        <ol class="scenario_steps" id="scenario_5"/>
         <span/>
       </div>
       <div class="feature">
@@ -338,19 +373,19 @@ teodora</pre>
       <div class="scenario">
         <span class="scenario_file">features/search.feature:13</span>
         <span class="tag">@search</span>
-        <h3 onclick="Collapsible_toggle('scenario_7')">
+        <h3 onclick="Collapsible_toggle('scenario_6')">
           <span class="val">Scenario Outline: Test search functionality -- @1.1 </span>
         </h3>
-        <ol class="scenario_steps" id="scenario_7"/>
+        <ol class="scenario_steps" id="scenario_6"/>
         <span/>
       </div>
       <div class="scenario">
         <span class="scenario_file">features/search.feature:14</span>
         <span class="tag">@search</span>
-        <h3 onclick="Collapsible_toggle('scenario_8')">
+        <h3 onclick="Collapsible_toggle('scenario_7')">
           <span class="val">Scenario Outline: Test search functionality -- @1.2 </span>
         </h3>
-        <ol class="scenario_steps" id="scenario_8"/>
+        <ol class="scenario_steps" id="scenario_7"/>
         <span/>
       </div>
     </div>

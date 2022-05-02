@@ -6,22 +6,33 @@ Feature: Emag Favorites feature
 
        @favorites1
        Scenario Outline: Test the favorites list is complete
-         When products: I add product to favorites list by "<product_name>"
+         When products: I add product to favorites list by "<product_name1>"
+         When products: I add product to favorites list by "<product_name2>"
          When products: I click on favorites icon
          Then products: I verify that I am on favorites page
-         Then favorites: I verify that the favorites list is complete by "<product_name>"
+         And favorites: I verify that the favorites list is complete by "<product_name1>"
+         And favorites: I verify that the favorites list is complete by "<product_name2>"
 
        Examples:
-         |product_name                                               |
-         |Biscuiti cu ciocolata si fulgi de cocos Bounty Cookies, 180g|
-#         |Biscuiti cu ciocolata si caramel Mars Cookies, 162g         |
+         |product_name1                                               |product_name2                                   |
+         |Biscuiti cu ciocolata si fulgi de cocos Bounty Cookies, 180g|Jeleuri cu aroma de fructe Haribo Goldbaren,360g|
+
 
        @favorites2
-       Scenario Outline: Test list has one element less, after I delete one element
-             When favorites: I delete one product by "{product_name}"
-             Then favorites: I see one element less in the list
+       Scenario Outline: Test that after I delete an element by name from favorites,it isn't displayed anymore
+         When products: I add product to favorites list by "<product_name1>"
+         When products: I add product to favorites list by "<product_name2>"
+         When products: I click on favorites icon
+         Then products: I verify that I am on favorites page
+         When favorites: I delete one product by "<product_name1>"
+         Then favorites: I do not see the "<product_name1>" anymore
+         When favorites: I delete one product by "<product_name2>"
+         Then favorites: I do not see the "<product_name2>" anymore
 
-             Examples:
-             |product_name |
-             |Biscuiti cu ciocolata si fulgi de cocos Bounty Cookies, 180g|
-             |Biscuiti cu ciocolata si caramel Mars Cookies, 162g         |
+
+       Examples:
+         |product_name1                                               |product_name2                                   |
+         |Biscuiti cu ciocolata si fulgi de cocos Bounty Cookies, 180g|Jeleuri cu aroma de fructe Haribo Goldbaren,360g|
+
+
+

@@ -16,5 +16,3 @@ pip install webdriver-manager
 Run tests:\
 behave -f html -o behave-report.html --tags=emag
 
-Happy Testing!\
-Andy

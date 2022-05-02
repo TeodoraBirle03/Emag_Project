@@ -32,22 +32,26 @@ class FavoritesPage(BasePage):
     def verify_favorites_url(self):
         self.verify_page_url('https://www.emag.ro/favorites?ref=ua_favorites')
 
-   # # trebuie sa verific ca lista este completa, contine 2 produse
-
-    def verify_element_is_displayed_in_favorites(self, product_name):
-        self.verify_element_is_displayed_as_list(product_name)
-        # elem_list = self.driver.find_elements(by, product_name)
-        # print(elem_list)
-        # self.assertEqual(len(elem_list), 1, 'Elements not displayed')
+    def verify_element_is_displayed(self, product_name):
+        selector = f'//a[@title="{product_name}"]'
+        elem = self.driver.find_element(By.XPATH, selector)
+        self.assertTrue(elem.is_displayed(), 'Elem not displayed')
 
     def click_sterge_produs(self, product_name):
         self.driver.find_element(By.XPATH, f'//span[contains(text(), "{product_name}")]/parent::a/parent::h2/parent::div/parent::div//span[contains(text(), "Sterge")]').click()
         # self.verify_element_is_displayed_as_list(self, by, product_name)
 
-    def verify_element_is_not_displayed(self, by, product_name):
-        elem_list = self.driver.find_elements(by, product_name)
-        self.assertEqual(len(elem_list), len(elem_list)-1, 'Element is still displayed')
+    # def verify_element_is_not_displayed(self, product_name):
+    #     selector = f'//a[@title="{product_name}"]'
+    #     elem = self.driver.find_element(By.XPATH, selector)
+    #     self.assertFalse(elem.is_displayed(), 'Element is still displayed')
 
-
-
+    def verify_element_is_not_displayed_as_elem(self, product_name):
+        selector = f'//a[@title="{product_name}"]'
+        try:
+            elem = self.driver.find_element(By.XPATH, selector)
+            if elem.is_displayed():
+                raise Exception('Element should not be displayed')
+        except:
+            pass
 

@@ -38,9 +38,23 @@ class BasePage(Browser):
         elem_list = self.driver.find_elements(by, selector)
         self.assertEqual(len(elem_list), 0, 'Elem is incorrectly displayed')
 
+    def verify_element_is_not_displayed_as_elem(self, by, selector):
+        try:
+            elem = self.driver.find_element(by, selector)
+            if elem.is_displayed():
+                raise Exception('Element should not be displayed')
+        except:
+            pass
+
     def verify_element_is_displayed_as_list(self, by, selector):
         elem_list = self.driver.find_elements(by, selector)
+        self.assertEqual(len(elem_list), 1, 'Element not displayed')
+
+    def verify_element_is_displayed_as_elem_list(self, elem_list):
         self.assertEqual(len(elem_list), 1, 'Elem not displayed')
+
+    def verify_element_is_displayed_by_elem(self, elem):
+        self.assertTrue(elem.is_displayed(), 'Elem not displayed')
 
     def verify_text_on_elem(self, by, selector, expected_text):
         actual = self.driver.find_element(by, selector).text
